@@ -56,8 +56,8 @@ const DEMO_MENU: MenuItem[] = [
     category: '시그니처',
     emoji: '🥪',
     imageUrl: 'https://linkmap.biz/img/templates/cafe-wrights-pairing.jpg',
-    isPopular: true,
     isNew: true,
+    isPopular: true,
   },
   {
     name: '플랫화이트',
@@ -147,18 +147,55 @@ const DEMO_MENU: MenuItem[] = [
     price: '₩7,000',
     category: '에이드',
     emoji: '🍋',
-  },
+  }
 ];
 
 const DEMO_HOURS: BusinessHour[] = [
-  { day: '월요일', dayEn: 'Monday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '화요일', dayEn: 'Tuesday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '수요일', dayEn: 'Wednesday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '목요일', dayEn: 'Thursday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '금요일', dayEn: 'Friday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '토요일', dayEn: 'Saturday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
-  { day: '일요일', dayEn: 'Sunday', hours: '08:00 – 22:30', hoursEn: '08:00 – 22:30' },
+  {
+    day: '월요일',
+    dayEn: 'Monday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '화요일',
+    dayEn: 'Tuesday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '수요일',
+    dayEn: 'Wednesday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '목요일',
+    dayEn: 'Thursday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '금요일',
+    dayEn: 'Friday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '토요일',
+    dayEn: 'Saturday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  },
+  {
+    day: '일요일',
+    dayEn: 'Sunday',
+    hours: '08:00 – 22:30',
+    hoursEn: '08:00 – 22:30',
+  }
 ];
+
+const _basePath = process.env.NEXT_PUBLIC_REPO_NAME ? `/${process.env.NEXT_PUBLIC_REPO_NAME}` : '';
 
 function parseJSON<T>(raw: string | undefined, fallback: T): T {
   if (!raw) return fallback;
@@ -170,61 +207,34 @@ function parseJSON<T>(raw: string | undefined, fallback: T): T {
 }
 
 export const siteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || '카페 라이츠',
+  name: process.env.NEXT_PUBLIC_SITE_NAME || '카페 라이츠2',
   nameEn: process.env.NEXT_PUBLIC_SITE_NAME_EN || 'Kafe Wrights',
-  description:
-    process.env.NEXT_PUBLIC_DESCRIPTION ||
-    '모던한 인테리어와 어우러진 감성 카페',
-  descriptionEn:
-    process.env.NEXT_PUBLIC_DESCRIPTION_EN ||
-    'A cozy cafe with a modern interior',
-  heroCategory:
-    process.env.NEXT_PUBLIC_HERO_CATEGORY ||
-    '건대입구 대형 베이커리 카페',
+  description: process.env.NEXT_PUBLIC_DESCRIPTION || '모던한 인테리어와 어우러진 감성 카페',
+  descriptionEn: process.env.NEXT_PUBLIC_DESCRIPTION_EN || 'A cozy cafe with a modern interior',
   phone: process.env.NEXT_PUBLIC_PHONE || '0507-1485-8892',
+  primaryColor: process.env.NEXT_PUBLIC_PRIMARY_COLOR || '#8b6914',
   address: process.env.NEXT_PUBLIC_ADDRESS || '서울 광진구 동일로20길 114',
-  addressDetail: process.env.NEXT_PUBLIC_ADDRESS_DETAIL || '1,2,3층 (자양동)',
   addressEn: process.env.NEXT_PUBLIC_ADDRESS_EN || '114, Dongil-ro 20-gil, Gwangjin-gu, Seoul',
   kakaoMapId: process.env.NEXT_PUBLIC_KAKAO_MAP_ID || '',
   naverPlaceUrl: process.env.NEXT_PUBLIC_NAVER_PLACE_URL || 'https://map.naver.com/p/entry/place/2007976823',
-  hoursNote: process.env.NEXT_PUBLIC_HOURS_NOTE || '라스트오더 22:00 · 연중무휴',
-  footerTagline: process.env.NEXT_PUBLIC_FOOTER_TAGLINE || 'Bakery & Coffee',
   menuItems: parseJSON<MenuItem[]>(process.env.NEXT_PUBLIC_MENU_ITEMS, DEMO_MENU),
   businessHours: parseJSON<BusinessHour[]>(process.env.NEXT_PUBLIC_BUSINESS_HOURS, DEMO_HOURS),
   galleryImages: parseJSON<string[]>(process.env.NEXT_PUBLIC_GALLERY_IMAGES, [
-    'https://linkmap.biz/img/templates/cafe-wrights-interior.jpg',
-    'https://linkmap.biz/img/templates/cafe-wrights-counter.jpg',
-    'https://linkmap.biz/img/templates/cafe-wrights-pairing.jpg',
-    'https://linkmap.biz/img/templates/cafe-wrights-latte.jpg',
-  ]),
-  galleryLabels: parseJSON<string[]>(process.env.NEXT_PUBLIC_GALLERY_LABELS, [
-    '매장 내부',
-    '카운터 & 바',
-    '월간 페어링',
-    '시그니처 라이츠라떼',
-  ]),
-  aboutStories: parseJSON<string[]>(process.env.NEXT_PUBLIC_ABOUT_STORIES, [
-    '카페 라이츠는 건대입구역 인근 자양동에 자리한 1~3층 규모의 베이커리 카페입니다. 모던한 인테리어와 층마다 다른 분위기의 공간에서 커피와 디저트를 여유롭게 즐길 수 있습니다.',
-    '지하 베이커리 스튜디오에서 매일 직접 굽는 페스츄리가 자랑입니다. 크루아상 결의 크랑떼부터 사과크림을 올린 시그니처 라이츠라떼, 매달 새롭게 선보이는 월간 페어링까지 — 직접 만드는 맛으로 계절을 전합니다.',
-  ]),
-  aboutTags: parseJSON<string[]>(process.env.NEXT_PUBLIC_ABOUT_TAGS, [
-    '#건대입구', '#베이커리카페', '#페스츄리', '#대형카페', '#시그니처음료',
-  ]),
-  aboutValues: parseJSON<AboutValue[]>(process.env.NEXT_PUBLIC_ABOUT_VALUES, [
-    { icon: '🥐', title: '매일 굽는 베이커리', desc: '지하 베이커리 스튜디오에서 매일 직접 굽는 페스츄리를 선보입니다.' },
-    { icon: '☕', title: '시그니처 음료', desc: '라이츠라떼 등 직접 개발한 시그니처 음료와 월간 페어링을 만나보세요.' },
-    { icon: '🏢', title: '층별로 다른 공간', desc: '1~3층 층마다 다른 분위기, 단체 이용도 가능한 여유로운 좌석.' },
-  ]),
-  transportBadges: parseJSON<string[]>(process.env.NEXT_PUBLIC_TRANSPORT_BADGES, [
-    '🚇 건대입구역 5번 출구 도보 2분 (108m)',
-    '🚗 인근 공영주차장 이용',
-  ]),
+  'https://linkmap.biz/img/templates/cafe-wrights-interior.jpg',
+  'https://linkmap.biz/img/templates/cafe-wrights-counter.jpg',
+  'https://linkmap.biz/img/templates/cafe-wrights-pairing.jpg',
+  'https://linkmap.biz/img/templates/cafe-wrights-latte.jpg'
+]),
   instagramUrl: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/kafe.wrights',
   naverBlogUrl: process.env.NEXT_PUBLIC_NAVER_BLOG_URL || 'https://blog.naver.com/kafewrights_',
   youtubeUrl: process.env.NEXT_PUBLIC_YOUTUBE_URL || 'https://www.youtube.com/@kafe.wrights',
   kakaoChannelUrl: process.env.NEXT_PUBLIC_KAKAO_CHANNEL_URL || '',
-  primaryColor: process.env.NEXT_PUBLIC_PRIMARY_COLOR || '#8b6914',
-  fontFamily: process.env.NEXT_PUBLIC_FONT_FAMILY || 'Nanum Myeongjo',
+  aboutTitle: process.env.NEXT_PUBLIC_ABOUT_TITLE || '',
+  aboutStories: parseJSON<string[]>(process.env.NEXT_PUBLIC_ABOUT_STORIES, ["카페 라이츠는 건대입구역 인근 자양동에 자리한 1~3층 규모의 베이커리 카페입니다. 모던한 인테리어와 층마다 다른 분위기의 공간에서 커피와 디저트를 여유롭게 즐길 수 있습니다.","지하 베이커리 스튜디오에서 매일 직접 굽는 페스츄리가 자랑입니다. 크루아상 결의 크랑떼부터 사과크림을 올린 시그니처 라이츠라떼, 매달 새롭게 선보이는 월간 페어링까지 — 직접 만드는 맛으로 계절을 전합니다."]),
+  aboutTags: parseJSON<string[]>(process.env.NEXT_PUBLIC_ABOUT_TAGS, ["#건대입구","#베이커리카페","#페스츄리","#대형카페","#시그니처음료"]),
+  aboutValues: parseJSON<AboutValue[]>(process.env.NEXT_PUBLIC_ABOUT_VALUES, [{"icon":"🥐","title":"매일 굽는 베이커리","desc":"지하 베이커리 스튜디오에서 매일 직접 굽는 페스츄리를 선보입니다."},{"icon":"☕","title":"시그니처 음료","desc":"라이츠라떼 등 직접 개발한 시그니처 음료와 월간 페어링을 만나보세요."},{"icon":"🏢","title":"층별로 다른 공간","desc":"1~3층 층마다 다른 분위기, 단체 이용도 가능한 여유로운 좌석."}]),
+  fontFamily: 'Nanum Myeongjo',
+  designPreset: 'default',
   gaId: process.env.NEXT_PUBLIC_GA_ID || null,
 };
 
